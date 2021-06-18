@@ -59,9 +59,17 @@ int main(int argc, char **argv){
 
 
 void play_music(arc_t *archivo){
-    printf("%s.%s\n", archivo->nombre, archivo->extension);
+
+    char command[MAX*2] = {0};
+
+    strcat(command, "mpg321 ");
+    strcat(command, archivo->nombre);
+    strcat(command, ".");
+    strcat(command, archivo->extension);
+
+    system(command);
 
 
-    //system("mpg321 1.mp3");
+    //
 }
 
