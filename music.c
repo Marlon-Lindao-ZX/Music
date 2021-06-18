@@ -38,9 +38,12 @@ int main(int argc, char **argv){
     while((opt = getopt(argc, argv, "f:e:")) > 0){
         switch(opt){
             case 'f':
+                archivo.nombre = (char *) malloc((strlen(optarg) + 1) * sizeof(char));
+                memset(archivo.nombre, 0, (strlen(optarg) + 1));
                 strcpy(archivo.nombre,optarg);
                 break;
             case 'e':
+                archivo.extension = (char *) calloc(strlen(optarg) + 1, sizeof(char));
                 strcpy(archivo.extension,optarg);
                 break;
             default:
@@ -50,6 +53,9 @@ int main(int argc, char **argv){
     }
 
     play_music(&archivo);
+
+    free(archivo.nombre);
+    free(archivo.extension);
     
 
     return 0;

@@ -6,8 +6,8 @@
 #define MAX 125
 
 typedef struct Archivo{
-    char nombre[MAX];
-    char extension[10];
+    char *nombre;
+    char *extension;
 } arc_t;
 
 typedef struct Ejemplo{
