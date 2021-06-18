@@ -1,13 +1,13 @@
 
-all: test
+all: music
 
-test: main.o
-	gcc -o test main.o 
+music: music.o
+	gcc -o music music.o 
 
-main.o: main.c
-	gcc -c main.c
+music.o: music.c
+	gcc -c music.c
 
 .PHONY:
 clean:
-	rm *.o test
+	rm *.o music
 
